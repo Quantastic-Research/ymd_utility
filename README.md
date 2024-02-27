@@ -139,3 +139,8 @@ print("New Years Day in 2024 was a federal holiday: ", new_years_2024.is_us_fede
 new_years_2022 = YMDDate("2022-01-01")
 print("New Years Day in 2022 was a federal holiday: ", new_years_2022.is_us_federal_holiday())
 ```
+
+## Contact and Issues
+Feel free to create [issue requests](https://github.com/Quantastic-Research/ymd_utility/issues) in this repo. [GitHub Profile](https://github.com/dpsciarrino).
+
+Blog: [Quantastic Research](https://quantasticresearch.com/)
