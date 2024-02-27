@@ -22,7 +22,7 @@ Where the code you write is located in the `run.py` file.
 ### Creating a YMDDate Object
 You can create a YMDDate object from a string, Date, or Datetime object.
 
-```
+```py
 from ymd_utility import YMDDate
 from datetime import date, datetime
 
@@ -38,7 +38,7 @@ print(ymd_from_datetime)
 ### Equality
 YMDDate object can be compared to strings, date, and datetime objects. Strings must be in the specified YYYY-MM-DD format, as verified by the is_ymd(...) utility function.
 
-```
+```py
 from ymd_utility import YMDDate, is_ymd
 
 date_string_to_compare: str = "2022-12-01"
@@ -50,7 +50,7 @@ if is_ymd(date_string_to_compare):
 
 ### Checking for Today's Date
 
-```
+```py
 from ymd_utility import YMDDate
 from datetime import datetime
 
@@ -63,7 +63,7 @@ print(ymd_today.is_today()) # True
 ```
 
 ### Next Day, Month, Year
-```
+```py
 from ymd_utility import YMDDate
 from datetime import datetime
 
@@ -80,7 +80,7 @@ print("5 years ago it was:", ymd_today.n_years(-5, units='W'))
 ```
 
 ### Type Conversions
-```
+```py
 from ymd_utility import YMDDate
 from datetime import datetime
 
@@ -92,7 +92,7 @@ print("YMD as datetime: ", ymd_today.to_datetime(), " Type: ", type(ymd_today.to
 
 ### Weekdays, Weekends, Days of the Week
 
-```
+```py
 from ymd_utility import YMDDate
 from datetime import datetime
 
@@ -106,7 +106,7 @@ print("Today (abbreviated) is: ", ymd_today.get_weekday(abbreviated=True))
 ### Next Business Day
 Obtain the next business using the `next_business_day()` method. It automatically takes into account US Federal Holidays and weekends. It does _not_ take into account user-defined holidays (discussed later).
 
-```
+```py
 from ymd_utility import YMDDate
 from datetime import datetime
 
@@ -117,7 +117,7 @@ print("The next business day from 2024-02-23 is: ", ymd_friday.next_business_day
 ### Holidays
 User-defined holidays are defined using a list of strings in YYYY-MM-DD format, or a list of YMDDate objects.
 
-```
+```py
 from ymd_utility import YMDDate
 
 holidays = ["2024-01-01", "2024-12-31"]
@@ -131,7 +131,7 @@ print(f"Is 2024-03-04 a holiday?", YMDDate("2024-03-04").is_holiday(holidays))
 
 For US Federal Holidays, use the following:
 
-```
+```py
 from ymd_utility import YMDDate
 
 new_years_2024 = YMDDate("2024-01-01")
