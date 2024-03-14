@@ -35,7 +35,7 @@ print(ymd_from_date)
 print(ymd_from_datetime)
 ```
 
-### Equality
+### Equality Checks
 YMDDate object can be compared to strings, date, and datetime objects. Strings must be in the specified YYYY-MM-DD format, as verified by the is_ymd(...) utility function.
 
 ```py
@@ -46,6 +46,17 @@ ymd_from_string: YMDDate = YMDDate("2022-04-22")
 
 if is_ymd(date_string_to_compare):
     print(date_string_to_compare == ymd_from_string) # False
+```
+
+Inequalities are also provided for less than, greater than, greater than or equal to, and less than or equal to.
+```py
+from ymd_utility import YMDDate, is_ymd
+
+ymd_1: YMDDate = YMDDate("2022-04-20")
+ymd_2: YMDDate = YMDDate("2022-04-22")
+
+print(ymd_1 > ymd_2) # False
+print(ymd_1 < ymd_2) # True
 ```
 
 ### Checking for Today's Date

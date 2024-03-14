@@ -435,6 +435,76 @@ class YMDDate:
             return False
         else:
             return False
+        
+    def __gt__(self, other) -> bool:
+        # Calculate this objects date representation
+        this_date = date_object(int(self._year), int(self._month), int(self._day))
+
+        # Compare all supported instances
+        if isinstance(other, self.__class__):
+            other_date = date_object(int(other._year), int(other._month), int(other._day))
+            return this_date > other_date
+        
+        elif isinstance(other, str):
+            if is_ymd(other):
+                y, m, d = self._ymd_from_string(other)
+                other_date = date_object(int(y), int(m), int(d))
+                
+                return this_date > other_date
+            return False
+        
+        elif isinstance(other, dt):
+            if is_ymd_datetime(other):
+                (y, m, d) = self._ymd_from_datetime(other) # strings
+                other_date = date_object(int(y), int(m), int(d))
+
+                return this_date > other_date
+                
+            return False
+        elif isinstance(other, date_object):
+            if is_ymd_date(other):
+                (y, m, d) = self._ymd_from_date(other) # strings
+                other_date = date_object(int(y), int(m), int(d))
+                return this_date > other_date
+            
+            return False
+        else:
+            return False
+    
+    def __ge__(self, other) -> bool:
+        # Calculate this objects date representation
+        this_date = date_object(int(self._year), int(self._month), int(self._day))
+
+        # Compare all supported instances
+        if isinstance(other, self.__class__):
+            other_date = date_object(int(other._year), int(other._month), int(other._day))
+            return this_date >= other_date
+        
+        elif isinstance(other, str):
+            if is_ymd(other):
+                y, m, d = self._ymd_from_string(other)
+                other_date = date_object(int(y), int(m), int(d))
+                
+                return this_date >= other_date
+            return False
+        
+        elif isinstance(other, dt):
+            if is_ymd_datetime(other):
+                (y, m, d) = self._ymd_from_datetime(other) # strings
+                other_date = date_object(int(y), int(m), int(d))
+
+                return this_date >= other_date
+                
+            return False
+        elif isinstance(other, date_object):
+            if is_ymd_date(other):
+                (y, m, d) = self._ymd_from_date(other) # strings
+                other_date = date_object(int(y), int(m), int(d))
+                return this_date >= other_date
+            
+            return False
+        else:
+            return False
 
     def __str__(self):
         """
